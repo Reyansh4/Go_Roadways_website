@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://YOUR_USERNAME.github.io/Go-Roadways-Website",
+  "homepage": "https://reyansh4.github.io/Go-Roadways-Website",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
