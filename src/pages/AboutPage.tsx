@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { User, Target, MapPin } from 'lucide-react';
+import { Target, MapPin } from 'lucide-react';
 import About from '../components/About';
 
 interface AboutPageProps {
@@ -31,7 +31,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              A Letter from our CEO
+              Our CEO's Note
             </motion.h2>
             <motion.p 
               className={`text-xl leading-relaxed max-w-3xl mx-auto ${
@@ -46,34 +46,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
             </motion.p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* CEO Image Placeholder */}
-            <motion.div 
-              className="relative"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className={`w-full h-96 rounded-3xl ${
-                darkMode ? 'bg-gray-700 border border-gray-600' : 'bg-gray-200 border border-gray-300'
-              } flex items-center justify-center`}>
-                <div className="text-center">
-                  <User className="h-16 w-16 mx-auto mb-4 text-gray-400" />
-                  <span className={`text-lg font-medium ${
-                    darkMode ? 'text-gray-400' : 'text-gray-500'
-                  }`}>
-                    CEO Photo
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
+          <div className="flex justify-center">
             {/* CEO Letter Content */}
             <motion.div 
-              className="space-y-6"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="space-y-6 max-w-4xl text-justify"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
             >
@@ -91,7 +69,7 @@ const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
                 <p className={`text-lg leading-relaxed ${
                   darkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
-                  Our beta testing program isn't just about launching another app - it's about building 
+                  Our service isn't just about launching another app - it's about building 
                   something better together. Every piece of feedback from our community helps us create 
                   a service that truly understands Toronto's unique needs.
                 </p>
@@ -105,7 +83,6 @@ const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
               </div>
               
               <div className="pt-4">
-                <p className="text-lg font-semibold text-primary">Rohit Tiwary</p>
                 <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                   CEO & Co-Founder, Go Roadways
                 </p>
@@ -149,12 +126,12 @@ const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
             </motion.p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="flex justify-center">
             {/* CTO Mission Content */}
             <motion.div 
-              className="space-y-6"
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              className="space-y-6 max-w-4xl text-justify"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
             >
@@ -180,13 +157,13 @@ const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
                 <p className={`text-lg leading-relaxed ${
                   darkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
-                  The beta program allows us to test and refine our technology with real users, 
+                  Our technology allows us to continuously improve and refine our platform with real users, 
                   ensuring we build something that truly works for Toronto's unique landscape 
                   and transportation needs.
                 </p>
               </div>
               
-              <div className="grid grid-cols-2 gap-4 pt-4">
+              <div className="grid grid-cols-2 gap-16 pt-4">
                 <div className={`p-4 rounded-xl ${
                   darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white border border-gray-200'
                 }`}>
@@ -208,32 +185,9 @@ const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
               </div>
               
               <div className="pt-4">
-                <p className="text-lg font-semibold text-accent">Rahul Naik</p>
                 <p className={`${darkMode ? 'text-gray-400' : 'text-gray-500'}`}>
                   CTO & Co-Founder, Go Roadways
                 </p>
-              </div>
-            </motion.div>
-
-            {/* CTO Image Placeholder */}
-            <motion.div 
-              className="relative"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className={`w-full h-96 rounded-3xl ${
-                darkMode ? 'bg-gray-700 border border-gray-600' : 'bg-gray-200 border border-gray-300'
-              } flex items-center justify-center`}>
-                <div className="text-center">
-                  <User className="h-16 w-16 mx-auto mb-4 text-gray-400" />
-                  <span className={`text-lg font-medium ${
-                    darkMode ? 'text-gray-400' : 'text-gray-500'
-                  }`}>
-                    CTO Photo
-                  </span>
-                </div>
               </div>
             </motion.div>
           </div>

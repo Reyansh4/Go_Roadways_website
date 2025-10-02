@@ -44,9 +44,9 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
           <div className="lg:col-span-2 space-y-6">
                 <div className="flex items-center space-x-3">
                   <img 
-                    src="/assets/images/logo-with-background.png" 
+                    src="/assets/images/Go_Roadways_transparent_logo_drk_mode.png" 
                     alt="Go Roadways Logo" 
-                    className="h-10 w-10 object-contain"
+                    className="h-24 w-24 object-contain"
                   />
                   <span className="text-xl font-bold text-white">
                     Go Roadways
@@ -54,8 +54,8 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
                 </div>
             
             <p className="text-gray-300 leading-relaxed max-w-md">
-              Launching Toronto's next-generation transportation platform. 
-              Currently in beta testing, we're building the future of ride-sharing in the GTA.
+              Toronto's next-generation transportation platform. 
+              Reliable, affordable ride-sharing with professional drivers and 24/7 support.
             </p>
 
             {/* Service Info */}
@@ -66,7 +66,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
               </div>
               <div className="flex items-center space-x-3 text-gray-300">
                 <Clock className="h-4 w-4" />
-                <span>Beta Testing Phase</span>
+                <span>24/7 Available</span>
               </div>
             </div>
 
@@ -145,7 +145,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
             </p>
             
             <div className="flex items-center space-x-6 text-gray-400 text-sm">
-              <span>Toronto Testing</span>
+              <span>Toronto Service</span>
             </div>
           </div>
         </div>

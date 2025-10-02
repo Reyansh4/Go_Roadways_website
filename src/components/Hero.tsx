@@ -1,5 +1,5 @@
-import React from 'react';
-import { ArrowRight, MapPin, Shield, Clock, CheckCircle } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ResponsiveImage from './ResponsiveImage';
 
@@ -8,150 +8,177 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ darkMode }) => {
+  const [pickupLocation, setPickupLocation] = useState('');
+  const [dropLocation, setDropLocation] = useState('');
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const heroImages = [
+    '/assets/images/homepage/hero-image.jpg',
+    '/assets/images/homepage/beta-image.png',
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const handleBookRide = () => {
+    // Handle booking logic here
+    console.log('Book a Ride clicked');
+  };
+
   return (
-    <section id="home" className={`pt-4 min-h-screen flex items-center ${
+    <section id="home" className={`pt-20 py-20 flex items-center ${
       darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-blue-50 to-white text-gray-900'
     }`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Content */}
+          {/* Left Content - Booking Form */}
           <motion.div 
             className="space-y-8"
             initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
+            viewport={{ once: true }}
           >
-            {/* Beta Status Badge */}
-            <motion.div 
-              className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium ${
-                darkMode ? 'bg-primary/30 text-primary/80' : 'bg-primary/10 text-primary'
-              }`}
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+            <motion.h1 
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
             >
-              <motion.span 
-                className="w-2 h-2 bg-primary rounded-full mr-2"
-                animate={{ scale: [1, 1.2, 1] }}
-                transition={{ duration: 2, repeat: Infinity }}
-              ></motion.span>
-              Currently in Beta Testing
-            </motion.div>
+              Let's <span className="text-primary font-bold">GO</span> anywhere
+            </motion.h1>
 
-            <div className="space-y-4">
-              <motion.h1 
-                className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Let's <span className="text-primary font-bold">GO</span> anywhere
-              </motion.h1>
-              
-              <motion.p 
-                className={`text-xl leading-relaxed ${
-                  darkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                Tired of unreliable ride services? We're building something better for Toronto.
-              </motion.p>
-
-              <motion.p 
-                className={`text-lg ${
-                  darkMode ? 'text-gray-400' : 'text-gray-500'
-                }`}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-              >
-                Join our growing community of beta testers and help shape the future of transportation in the GTA.
-              </motion.p>
-            </div>
-
-            {/* Real Benefits for Beta Users */}
+            {/* Route Display */}
             <motion.div 
               className="space-y-4"
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
             >
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-success" />
-                <span className="font-medium">No surge pricing during beta</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-success" />
-                <span className="font-medium">Direct feedback to our team</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-success" />
-                <span className="font-medium">Exclusive early access features</span>
-              </div>
-            </motion.div>
+              {/* Pickup Location */}
+              <motion.div 
+                className="space-y-2"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-4 h-4 bg-red-500 rounded-full shadow-lg"></div>
+                  <input
+                    type="text"
+                    value={pickupLocation}
+                    onChange={(e) => setPickupLocation(e.target.value)}
+                    placeholder="Pickup Location"
+                    className={`flex-1 px-3 py-2 rounded-xl border transition-colors ${
+                      darkMode 
+                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-primary' 
+                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-primary'
+                    } focus:outline-none focus:ring-2 focus:ring-primary/20`}
+                  />
+                </div>
+                {/* Route Line */}
+                <motion.div 
+                  className="flex justify-start"
+                  initial={{ opacity: 0, scaleY: 0 }}
+                  whileInView={{ opacity: 1, scaleY: 1 }}
+                  transition={{ duration: 0.8, delay: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  <div className={`w-0.5 h-12 ${darkMode ? 'bg-gray-600' : 'bg-gray-300'} rounded-full ml-2`}></div>
+                </motion.div>
+              </motion.div>
 
-            {/* CTA Buttons */}
-            <motion.div 
-              className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
-            >
+              {/* Drop Location */}
+              <motion.div 
+                className="space-y-2"
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 1.0 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center space-x-3">
+                  <div className="w-4 h-4 bg-primary rounded-full shadow-lg"></div>
+                  <input
+                    type="text"
+                    value={dropLocation}
+                    onChange={(e) => setDropLocation(e.target.value)}
+                    placeholder="Drop Location"
+                    className={`flex-1 px-3 py-2 rounded-xl border transition-colors ${
+                      darkMode 
+                        ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400 focus:border-primary' 
+                        : 'bg-white border-gray-300 text-gray-900 placeholder-gray-500 focus:border-primary'
+                    } focus:outline-none focus:ring-2 focus:ring-primary/20`}
+                  />
+                </div>
+              </motion.div>
+
+              {/* Date and Time Inputs */}
+              <motion.div 
+                className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.2 }}
+                viewport={{ once: true }}
+              >
+                {/* Date Input */}
+                <div className="space-y-4">
+                  <label className="block text-sm font-medium flex items-center">
+                    <Calendar className="h-4 w-4 mr-2 text-primary" />
+                    Date
+                  </label>
+                  <input
+                    type="text"
+                    value="Today"
+                    readOnly
+                    className={`w-full px-3 py-2 rounded-xl border transition-colors ${
+                      darkMode 
+                        ? 'bg-gray-700 border-gray-600 text-white' 
+                        : 'bg-white border-gray-300 text-gray-900'
+                    }`}
+                  />
+                </div>
+
+                {/* Time Input */}
+                <div className="space-y-4">
+                  <label className="block text-sm font-medium flex items-center">
+                    <Clock className="h-4 w-4 mr-2 text-primary" />
+                    Time
+                  </label>
+                  <input
+                    type="text"
+                    value="Now"
+                    readOnly
+                    className={`w-full px-3 py-2 rounded-xl border transition-colors ${
+                      darkMode 
+                        ? 'bg-gray-700 border-gray-600 text-white' 
+                        : 'bg-white border-gray-300 text-gray-900'
+                    }`}
+                  />
+                </div>
+              </motion.div>
+
+              {/* Book Ride Button */}
               <motion.button 
-                className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                onClick={handleBookRide}
+                className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-400 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+                viewport={{ once: true }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Join Our Beta</span>
+                <span>Book a Ride</span>
                 <ArrowRight className="h-5 w-5" />
               </motion.button>
-              <motion.button 
-                className={`px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 transform hover:scale-105 ${
-                  darkMode 
-                    ? 'border-gray-600 text-gray-300 hover:bg-gray-800' 
-                    : 'border-gray-300 text-gray-700 hover:bg-gray-50'
-                }`}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                Learn More
-              </motion.button>
-            </motion.div>
-
-            {/* Trust Indicators */}
-            <motion.div 
-              className="grid grid-cols-3 gap-6 pt-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              {[
-                { icon: <Shield className="h-6 w-6 text-primary" />, text: "Secure & Safe", bg: "bg-primary/10" },
-                { icon: <MapPin className="h-6 w-6 text-success" />, text: "Downtown Toronto", bg: "bg-success/10" },
-                { icon: <Clock className="h-6 w-6 text-accent" />, text: "24/7 Support", bg: "bg-accent/10" }
-              ].map((item, index) => (
-                <motion.div 
-                  key={index}
-                  className="text-center"
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.4 + index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <div className={`inline-flex p-3 rounded-full ${
-                    darkMode ? 'bg-gray-800' : item.bg
-                  }`}>
-                    {item.icon}
-                  </div>
-                  <p className={`mt-2 text-sm font-medium ${
-                    darkMode ? 'text-gray-300' : 'text-gray-600'
-                  }`}>
-                    {item.text}
-                  </p>
-                </motion.div>
-              ))}
             </motion.div>
           </motion.div>
 
@@ -159,8 +186,9 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
           <motion.div 
             className="relative"
             initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
           >
             <motion.div 
               className={`relative rounded-3xl overflow-hidden shadow-2xl ${
@@ -171,7 +199,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
             >
               <div className="relative w-full">
                 <ResponsiveImage
-                  src="/assets/images/homepage/hero-image.jpg"
+                  src={heroImages[currentImageIndex]}
                   alt="Professional driver in modern car"
                   aspectRatio="auto"
                   minHeight={{
@@ -185,40 +213,6 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-            </motion.div>
-            
-            {/* Floating Stats Card */}
-            <motion.div 
-              className={`absolute -bottom-6 -left-6 p-6 rounded-2xl shadow-xl ${
-                darkMode ? 'bg-gray-800 border border-gray-700' : 'bg-white'
-              }`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-              whileHover={{ scale: 1.05 }}
-            >
-              <div className="grid grid-cols-2 gap-4 text-center">
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.4 }}
-                >
-                  <div className="text-2xl font-bold text-primary">Beta</div>
-                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    Testing Phase
-                  </div>
-                </motion.div>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.6, delay: 1.6 }}
-                >
-                  <div className="text-2xl font-bold text-success">Toronto</div>
-                  <div className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                    Launch City
-                  </div>
-                </motion.div>
-              </div>
             </motion.div>
           </motion.div>
         </div>

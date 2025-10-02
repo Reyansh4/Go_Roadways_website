@@ -1,5 +1,6 @@
 import React from 'react';
 import { Target, Award, Users, TrendingUp } from 'lucide-react';
+import { motion } from 'framer-motion';
 import ResponsiveImage from './ResponsiveImage';
 
 interface AboutProps {
@@ -9,9 +10,9 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ darkMode }) => {
   const stats = [
     { icon: <Users className="h-8 w-8" />, value: '2025', label: 'Founded' },
-    { icon: <Award className="h-8 w-8" />, value: 'Beta', label: 'Testing Phase' },
+    { icon: <Award className="h-8 w-8" />, value: '24/7', label: 'Available' },
     { icon: <TrendingUp className="h-8 w-8" />, value: 'Toronto', label: 'Launch City' },
-    { icon: <Target className="h-8 w-8" />, value: 'Coming Soon', label: 'Full Launch' },
+    { icon: <Target className="h-8 w-8" />, value: 'Premium', label: 'Service' },
   ];
 
   return (
@@ -24,7 +25,11 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
           <div className="relative">
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-6">
-                <div className="w-full h-64 lg:h-72 rounded-2xl overflow-hidden shadow-lg">
+                <motion.div 
+                  className="w-full h-64 lg:h-72 rounded-2xl overflow-hidden shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <ResponsiveImage
                     src="/assets/images/aboutpage/about-page-01.png"
                     alt="Go Roadways team and vision"
@@ -37,8 +42,12 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                     maxHeight="20rem"
                     className="w-full h-full object-cover"
                   />
-                </div>
-                <div className="w-full h-48 lg:h-56 rounded-2xl overflow-hidden shadow-lg">
+                </motion.div>
+                <motion.div 
+                  className="w-full h-48 lg:h-56 rounded-2xl overflow-hidden shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <ResponsiveImage
                     src="/assets/images/aboutpage/about-page-02.png"
                     alt="Professional drivers and service"
@@ -51,10 +60,14 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                     maxHeight="16rem"
                     className="w-full h-full object-cover"
                   />
-                </div>
+                </motion.div>
               </div>
               <div className="space-y-6 mt-12">
-                <div className="w-full h-48 lg:h-56 rounded-2xl overflow-hidden shadow-lg">
+                <motion.div 
+                  className="w-full h-48 lg:h-56 rounded-2xl overflow-hidden shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <ResponsiveImage
                     src="/assets/images/aboutpage/about-page-03.png"
                     alt="Modern transportation technology"
@@ -67,8 +80,12 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                     maxHeight="16rem"
                     className="w-full h-full object-cover"
                   />
-                </div>
-                <div className="w-full h-64 lg:h-72 rounded-2xl overflow-hidden shadow-lg">
+                </motion.div>
+                <motion.div 
+                  className="w-full h-64 lg:h-72 rounded-2xl overflow-hidden shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                >
                   <ResponsiveImage
                     src="/assets/images/aboutpage/about-page-04.png"
                     alt="Toronto city and community focus"
@@ -81,7 +98,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                     maxHeight="20rem"
                     className="w-full h-full object-cover"
                   />
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
@@ -98,7 +115,7 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                 }`}>
                   Founded in 2025, Go Roadways is launching a new era of transportation in Toronto 
                   by connecting riders with reliable, professional drivers through our 
-                  innovative platform. Currently in beta testing across the Greater Toronto Area.
+                  innovative platform. Available across the Greater Toronto Area.
                 </p>
                 <p className={`text-lg leading-relaxed ${
                   darkMode ? 'text-gray-300' : 'text-gray-600'

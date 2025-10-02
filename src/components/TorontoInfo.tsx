@@ -16,7 +16,7 @@ const TorontoInfo: React.FC<TorontoInfoProps> = ({ darkMode }) => {
           <div className="flex items-center space-x-2">
             <MapPin className={`h-5 w-5 ${darkMode ? 'text-blue-400' : 'text-blue-600'}`} />
             <span className={`font-semibold ${darkMode ? 'text-blue-300' : 'text-blue-800'}`}>
-              Currently Testing in Toronto, ON
+              Available in Toronto, ON
             </span>
           </div>
           
@@ -37,7 +37,7 @@ const TorontoInfo: React.FC<TorontoInfoProps> = ({ darkMode }) => {
             <div className="flex items-center space-x-1">
               <Users className={`h-4 w-4 ${darkMode ? 'text-gray-400' : 'text-gray-600'}`} />
               <span className={darkMode ? 'text-gray-300' : 'text-gray-700'}>
-                Limited Beta
+                Premium Service
               </span>
             </div>
           </div>

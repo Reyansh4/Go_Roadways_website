@@ -99,7 +99,11 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ darkMode }) => {
                           whileHover={{ scale: 1.02 }}
                         >
                           <div className="relative">
-                            <div className="w-full h-48 sm:h-56 lg:h-64 rounded-2xl overflow-hidden shadow-xl">
+                            <motion.div 
+                              className="w-full h-48 sm:h-56 lg:h-64 rounded-2xl overflow-hidden shadow-xl"
+                              whileHover={{ scale: 1.02 }}
+                              transition={{ duration: 0.3 }}
+                            >
                               <ResponsiveImage
                                 src={`/assets/images/ridepage/step-0${index + 1}.png`}
                                 alt={`Step ${index + 1}: ${step.title}`}
@@ -112,7 +116,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ darkMode }) => {
                                 maxHeight="20rem"
                                 className="w-full h-full object-cover"
                               />
-                            </div>
+                            </motion.div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"></div>
                           </div>
                         </motion.div>
@@ -192,7 +196,11 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ darkMode }) => {
                           whileHover={{ scale: 1.02 }}
                         >
                           <div className="relative">
-                            <div className="w-full h-48 sm:h-56 lg:h-64 rounded-2xl overflow-hidden shadow-xl">
+                            <motion.div 
+                              className="w-full h-48 sm:h-56 lg:h-64 rounded-2xl overflow-hidden shadow-xl"
+                              whileHover={{ scale: 1.02 }}
+                              transition={{ duration: 0.3 }}
+                            >
                               <ResponsiveImage
                                 src={`/assets/images/ridepage/step-0${index + 1}.png`}
                                 alt={`Step ${index + 1}: ${step.title}`}
@@ -205,7 +213,7 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ darkMode }) => {
                                 maxHeight="20rem"
                                 className="w-full h-full object-cover"
                               />
-                            </div>
+                            </motion.div>
                             <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent rounded-2xl"></div>
                           </div>
                         </motion.div>
@@ -223,9 +231,9 @@ const HowItWorks: React.FC<HowItWorksProps> = ({ darkMode }) => {
         } shadow-lg`}>
           <div className="grid md:grid-cols-3 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-primary mb-2">Beta</div>
+              <div className="text-3xl font-bold text-primary mb-2">24/7</div>
               <p className={`text-sm ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
-                Testing Phase
+                Available
               </p>
             </div>
             <div>

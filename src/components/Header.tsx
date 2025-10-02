@@ -28,18 +28,13 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
               {/* Logo */}
-              <div className="flex items-center space-x-3">
+              <Link to="/" className="flex items-center space-x-3">
                 <img 
-                  src="/assets/images/logo-with-background.png" 
+                  src={darkMode ? "/assets/images/Go_Roadways_transparent_logo_drk_mode.png" : "/assets/images/logo-transparent-lgt-mode.png"} 
                   alt="Go Roadways Logo" 
-                  className="h-10 w-10 object-contain"
+                  className="h-24 w-24 object-contain hover:opacity-80 transition-opacity duration-200"
                 />
-                <span className={`text-xl font-bold ${
-                  darkMode ? 'text-white' : 'text-gray-900'
-                }`}>
-                  Go Roadways
-                </span>
-              </div>
+              </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">

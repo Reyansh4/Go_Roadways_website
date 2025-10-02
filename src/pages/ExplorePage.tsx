@@ -138,22 +138,25 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ darkMode }) => {
           <motion.div 
             className="text-center"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
           >
             <motion.div
               className="text-lg font-semibold text-primary mb-4"
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
+              viewport={{ once: true }}
             >
               Discover Toronto
             </motion.div>
             <motion.h1 
               className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6"
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
             >
               Explore the <span className="text-primary">6ix</span>
             </motion.h1>
@@ -162,8 +165,9 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ darkMode }) => {
                 darkMode ? 'text-gray-300' : 'text-gray-600'
               }`}
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
             >
               From iconic landmarks to hidden gems, discover the best of Toronto 
               with our curated guide to the city's most exciting attractions.
@@ -224,7 +228,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ darkMode }) => {
                   <img 
                     src={attraction.image}
                     alt={attraction.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   
@@ -322,7 +326,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ darkMode }) => {
                   <img 
                     src={neighborhood.image}
                     alt={neighborhood.name}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                   <div className="absolute bottom-6 left-6">
