@@ -23,7 +23,8 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content - Image */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-6">
+            {/* Desktop/Tablet Layout - 2x2 Grid */}
+            <div className="hidden md:grid grid-cols-2 gap-6">
               <div className="space-y-6">
                 <motion.div 
                   className="w-full h-64 lg:h-72 rounded-2xl overflow-hidden shadow-lg"
@@ -100,6 +101,74 @@ const About: React.FC<AboutProps> = ({ darkMode }) => {
                   />
                 </motion.div>
               </div>
+            </div>
+
+            {/* Mobile Layout - Single Column */}
+            <div className="md:hidden space-y-4">
+              <motion.div 
+                className="w-full h-48 rounded-2xl overflow-hidden shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ResponsiveImage
+                  src="/assets/images/aboutpage/about-page-01.png"
+                  alt="Go Roadways team and vision"
+                  aspectRatio="auto"
+                  minHeight={{
+                    mobile: '12rem',
+                  }}
+                  maxHeight="14rem"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+              <motion.div 
+                className="w-full h-48 rounded-2xl overflow-hidden shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ResponsiveImage
+                  src="/assets/images/aboutpage/about-page-02.png"
+                  alt="Professional drivers and service"
+                  aspectRatio="auto"
+                  minHeight={{
+                    mobile: '12rem',
+                  }}
+                  maxHeight="14rem"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+              <motion.div 
+                className="w-full h-48 rounded-2xl overflow-hidden shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ResponsiveImage
+                  src="/assets/images/aboutpage/about-page-03.png"
+                  alt="Modern transportation technology"
+                  aspectRatio="auto"
+                  minHeight={{
+                    mobile: '12rem',
+                  }}
+                  maxHeight="14rem"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+              <motion.div 
+                className="w-full h-48 rounded-2xl overflow-hidden shadow-lg"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ResponsiveImage
+                  src="/assets/images/aboutpage/about-page-04.png"
+                  alt="Toronto city and community focus"
+                  aspectRatio="auto"
+                  minHeight={{
+                    mobile: '12rem',
+                  }}
+                  maxHeight="14rem"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
             </div>
           </div>
 

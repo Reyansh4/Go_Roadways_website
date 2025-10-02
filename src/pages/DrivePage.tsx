@@ -9,8 +9,8 @@ interface DrivePageProps {
 
 const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
   const earningStats = [
-    { label: 'Average per hour', value: '$25-35', icon: <DollarSign className="h-5 w-5" /> },
-    { label: 'Peak hours bonus', value: 'Up to 2x', icon: <TrendingUp className="h-5 w-5" /> },
+    { label: 'Hourly Average', value: '$25-35', icon: <DollarSign className="h-5 w-5" /> },
+    { label: 'Peak hours', value: 'Upto 2x', icon: <TrendingUp className="h-5 w-5" /> },
     { label: 'Weekly payout', value: 'Every Tuesday', icon: <Clock className="h-5 w-5" /> },
   ];
 
@@ -26,7 +26,7 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
 
 
   return (
-    <div className="pt-24">
+    <div className="pt-24 w-full overflow-x-hidden">
       {/* Hero Section - Uber-style */}
       <section className={`py-16 ${
         darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
@@ -136,10 +136,10 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
       </section>
 
       {/* Why Drivers Choose Us Section */}
-      <section className={`py-10 ${
+      <section className={`py-10 w-full ${
         darkMode ? 'bg-gray-800 text-white' : 'bg-gray-50 text-gray-900'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div 
             className="text-center mb-16"
             initial={{ opacity: 0, y: 30 }}
@@ -169,10 +169,11 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
             </motion.p>
           </motion.div>
 
-          {/* 3D Pie Diagram */}
-          <div className="flex justify-center items-center">
+          {/* Responsive 3D Pie Diagram */}
+          <div className="flex justify-center items-center w-full overflow-hidden">
+            {/* Desktop Layout */}
             <motion.div 
-              className="relative w-[600px] h-[600px]"
+              className="hidden lg:block relative w-[600px] h-[600px]"
               initial={{ scale: 0, rotateY: -15 }}
               whileInView={{ scale: 1, rotateY: 0 }}
               transition={{ duration: 0.8 }}
@@ -391,6 +392,456 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
                 }}
               >
                 <div className="text-xl font-bold text-primary">Benefits</div>
+              </div>
+
+            </motion.div>
+
+            {/* Tablet Layout */}
+            <motion.div 
+              className="hidden md:block lg:hidden relative w-[400px] h-[400px]"
+              initial={{ scale: 0, rotateY: -10 }}
+              whileInView={{ scale: 1, rotateY: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              style={{ perspective: '800px' }}
+            >
+              {/* 3D Pie Chart Container */}
+              <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+                
+                {/* Quarter 1 - Top Right (3D) with Text */}
+                <motion.div 
+                  className="absolute top-0 right-0 w-1/2 h-1/2 cursor-pointer"
+                  style={{
+                    transform: 'translateZ(15px)'
+                  }}
+                  whileHover={{
+                    translateZ: 30,
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Pie Quarter */}
+                  <div 
+                    className="absolute top-0 right-0 w-full h-full"
+                    style={{
+                      background: `conic-gradient(from 0deg at 100% 0%, #10b981 0deg, #10b981 90deg, transparent 90deg)`,
+                      boxShadow: '0 6px 20px rgba(16, 185, 129, 0.3)',
+                      borderRadius: '0 100% 0 0'
+                    }}
+                  />
+                  
+                  {/* Text Container */}
+                  <div className="absolute" style={{ top: '35%', right: '35%', transform: 'translateZ(15px)' }}>
+                    <div className={`flex flex-col items-center p-2 rounded-lg border-2 backdrop-blur-sm w-24 ${
+                      darkMode ? 'border-white/30 bg-white/10' : 'border-white/50 bg-white/20'
+                    }`}>
+                      <DollarSign className={`w-5 h-5 mb-1 drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`} />
+                      <div className={`text-sm font-semibold drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`}>Fair Price</div>
+                      <div className={`text-xs text-center mt-1 leading-tight ${
+                        darkMode ? 'text-gray-300' : 'text-white/90'
+                      }`}>Competitive rates</div>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* Quarter 2 - Top Left (3D) with Text */}
+                <motion.div 
+                  className="absolute top-0 left-0 w-1/2 h-1/2 cursor-pointer"
+                  style={{
+                    transform: 'translateZ(15px)'
+                  }}
+                  whileHover={{
+                    translateZ: 30,
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Pie Quarter */}
+                  <div 
+                    className="absolute top-0 left-0 w-full h-full"
+                    style={{
+                      background: `conic-gradient(from 90deg at 0% 0%, #10b981 0deg, #10b981 90deg, transparent 90deg)`,
+                      boxShadow: '0 6px 20px rgba(16, 185, 129, 0.3)',
+                      borderRadius: '100% 0 0 0'
+                    }}
+                  />
+                  
+                  {/* Text Container */}
+                  <div className="absolute" style={{ top: '35%', left: '35%', transform: 'translateZ(15px)' }}>
+                    <div className={`flex flex-col items-center p-2 rounded-lg border-2 backdrop-blur-sm w-24 ${
+                      darkMode ? 'border-white/30 bg-white/10' : 'border-white/50 bg-white/20'
+                    }`}>
+                      <ArrowRight className={`w-5 h-5 mb-1 drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`} />
+                      <div className={`text-sm font-semibold drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`}>Freedom</div>
+                      <div className={`text-xs text-center mt-1 leading-tight ${
+                        darkMode ? 'text-gray-300' : 'text-white/90'
+                      }`}>Drive when you want</div>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* Quarter 3 - Bottom Left (3D) with Text */}
+                <motion.div 
+                  className="absolute bottom-0 left-0 w-1/2 h-1/2 cursor-pointer"
+                  style={{
+                    transform: 'translateZ(15px)'
+                  }}
+                  whileHover={{
+                    translateZ: 30,
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Pie Quarter */}
+                  <div 
+                    className="absolute bottom-0 left-0 w-full h-full"
+                    style={{
+                      background: `conic-gradient(from 180deg at 0% 100%, #10b981 0deg, #10b981 90deg, transparent 90deg)`,
+                      boxShadow: '0 6px 20px rgba(16, 185, 129, 0.3)',
+                      borderRadius: '0 0 0 100%'
+                    }}
+                  />
+                  
+                  {/* Text Container */}
+                  <div className="absolute" style={{ bottom: '35%', left: '35%', transform: 'translateZ(15px)' }}>
+                    <div className={`flex flex-col items-center p-2 rounded-lg border-2 backdrop-blur-sm w-24 ${
+                      darkMode ? 'border-white/30 bg-white/10' : 'border-white/50 bg-white/20'
+                    }`}>
+                      <CheckCircle className={`w-5 h-5 mb-1 drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`} />
+                      <div className={`text-sm font-semibold drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`}>Safety</div>
+                      <div className={`text-xs text-center mt-1 leading-tight ${
+                        darkMode ? 'text-gray-300' : 'text-white/90'
+                      }`}>24/7 support</div>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* Quarter 4 - Bottom Right (3D) with Text */}
+                <motion.div 
+                  className="absolute bottom-0 right-0 w-1/2 h-1/2 cursor-pointer"
+                  style={{
+                    transform: 'translateZ(15px)'
+                  }}
+                  whileHover={{
+                    translateZ: 30,
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Pie Quarter */}
+                  <div 
+                    className="absolute bottom-0 right-0 w-full h-full"
+                    style={{
+                      background: `conic-gradient(from 270deg at 100% 100%, #10b981 0deg, #10b981 90deg, transparent 90deg)`,
+                      boxShadow: '0 6px 20px rgba(16, 185, 129, 0.3)',
+                      borderRadius: '0 0 100% 0'
+                    }}
+                  />
+                  
+                  {/* Text Container */}
+                  <div className="absolute" style={{ bottom: '35%', right: '35%', transform: 'translateZ(15px)' }}>
+                    <div className={`flex flex-col items-center p-2 rounded-lg border-2 backdrop-blur-sm w-24 ${
+                      darkMode ? 'border-white/30 bg-white/10' : 'border-white/50 bg-white/20'
+                    }`}>
+                      <Clock className={`w-5 h-5 mb-1 drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`} />
+                      <div className={`text-sm font-semibold drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`}>Flexible</div>
+                      <div className={`text-xs text-center mt-1 leading-tight ${
+                        darkMode ? 'text-gray-300' : 'text-white/90'
+                      }`}>Work around schedule</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* 3D Side Panels for depth - all same depth */}
+                <div 
+                  className="absolute top-0 right-0 w-1/2 h-1/2"
+                  style={{
+                    background: '#10b981',
+                    transform: 'translateZ(-8px) translateX(8px)',
+                    borderRadius: '0 100% 0 0',
+                    opacity: 0.7
+                  }}
+                />
+                <div 
+                  className="absolute top-0 left-0 w-1/2 h-1/2"
+                  style={{
+                    background: '#10b981',
+                    transform: 'translateZ(-8px) translateX(-8px)',
+                    borderRadius: '100% 0 0 0',
+                    opacity: 0.7
+                  }}
+                />
+                <div 
+                  className="absolute bottom-0 left-0 w-1/2 h-1/2"
+                  style={{
+                    background: '#10b981',
+                    transform: 'translateZ(-8px) translateX(-8px)',
+                    borderRadius: '0 0 0 100%',
+                    opacity: 0.7
+                  }}
+                />
+                <div 
+                  className="absolute bottom-0 right-0 w-1/2 h-1/2"
+                  style={{
+                    background: '#10b981',
+                    transform: 'translateZ(-8px) translateX(8px)',
+                    borderRadius: '0 0 100% 0',
+                    opacity: 0.7
+                  }}
+                />
+              </div>
+
+              {/* 3D Center Circle */}
+              <div 
+                className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-28 h-28 rounded-full border-4 border-primary flex items-center justify-center`}
+                style={{
+                  transform: 'translate(-50%, -50%) translateZ(25px)',
+                  boxShadow: '0 10px 25px rgba(16, 185, 129, 0.4)',
+                  background: darkMode ? 'linear-gradient(145deg, #1f2937, #111827)' : 'linear-gradient(145deg, #ffffff, #f3f4f6)'
+                }}
+              >
+                <div className="text-lg font-bold text-primary">Benefits</div>
+              </div>
+
+            </motion.div>
+
+            {/* Mobile Layout - Small Pie Chart */}
+            <motion.div 
+              className="md:hidden relative w-[300px] h-[300px] mx-auto"
+              initial={{ scale: 0, rotateY: -5 }}
+              whileInView={{ scale: 1, rotateY: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              style={{ perspective: '600px' }}
+            >
+              {/* 3D Pie Chart Container */}
+              <div className="relative w-full h-full" style={{ transformStyle: 'preserve-3d' }}>
+                
+                {/* Quarter 1 - Top Right (3D) with Text */}
+                <motion.div 
+                  className="absolute top-0 right-0 w-1/2 h-1/2 cursor-pointer"
+                  style={{
+                    transform: 'translateZ(10px)'
+                  }}
+                  whileHover={{
+                    translateZ: 20,
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Pie Quarter */}
+                  <div 
+                    className="absolute top-0 right-0 w-full h-full"
+                    style={{
+                      background: `conic-gradient(from 0deg at 100% 0%, #10b981 0deg, #10b981 90deg, transparent 90deg)`,
+                      boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)',
+                      borderRadius: '0 100% 0 0'
+                    }}
+                  />
+                  
+                  {/* Text Container */}
+                  <div className="absolute" style={{ top: '35%', right: '35%', transform: 'translateZ(10px)' }}>
+                    <div className={`flex flex-col items-center p-1 rounded-lg border-2 backdrop-blur-sm w-20 ${
+                      darkMode ? 'border-white/30 bg-white/10' : 'border-white/50 bg-white/20'
+                    }`}>
+                      <DollarSign className={`w-4 h-4 mb-1 drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`} />
+                      <div className={`text-xs font-semibold drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`}>Fair Price</div>
+                      <div className={`text-[10px] text-center mt-1 leading-tight ${
+                        darkMode ? 'text-gray-300' : 'text-white/90'
+                      }`}>Competitive rates</div>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* Quarter 2 - Top Left (3D) with Text */}
+                <motion.div 
+                  className="absolute top-0 left-0 w-1/2 h-1/2 cursor-pointer"
+                  style={{
+                    transform: 'translateZ(10px)'
+                  }}
+                  whileHover={{
+                    translateZ: 20,
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Pie Quarter */}
+                  <div 
+                    className="absolute top-0 left-0 w-full h-full"
+                    style={{
+                      background: `conic-gradient(from 90deg at 0% 0%, #10b981 0deg, #10b981 90deg, transparent 90deg)`,
+                      boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)',
+                      borderRadius: '100% 0 0 0'
+                    }}
+                  />
+                  
+                  {/* Text Container */}
+                  <div className="absolute" style={{ top: '35%', left: '35%', transform: 'translateZ(10px)' }}>
+                    <div className={`flex flex-col items-center p-1 rounded-lg border-2 backdrop-blur-sm w-20 ${
+                      darkMode ? 'border-white/30 bg-white/10' : 'border-white/50 bg-white/20'
+                    }`}>
+                      <ArrowRight className={`w-4 h-4 mb-1 drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`} />
+                      <div className={`text-xs font-semibold drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`}>Freedom</div>
+                      <div className={`text-[10px] text-center mt-1 leading-tight ${
+                        darkMode ? 'text-gray-300' : 'text-white/90'
+                      }`}>Drive when you want</div>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* Quarter 3 - Bottom Left (3D) with Text */}
+                <motion.div 
+                  className="absolute bottom-0 left-0 w-1/2 h-1/2 cursor-pointer"
+                  style={{
+                    transform: 'translateZ(10px)'
+                  }}
+                  whileHover={{
+                    translateZ: 20,
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Pie Quarter */}
+                  <div 
+                    className="absolute bottom-0 left-0 w-full h-full"
+                    style={{
+                      background: `conic-gradient(from 180deg at 0% 100%, #10b981 0deg, #10b981 90deg, transparent 90deg)`,
+                      boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)',
+                      borderRadius: '0 0 0 100%'
+                    }}
+                  />
+                  
+                  {/* Text Container */}
+                  <div className="absolute" style={{ bottom: '35%', left: '35%', transform: 'translateZ(10px)' }}>
+                    <div className={`flex flex-col items-center p-1 rounded-lg border-2 backdrop-blur-sm w-20 ${
+                      darkMode ? 'border-white/30 bg-white/10' : 'border-white/50 bg-white/20'
+                    }`}>
+                      <CheckCircle className={`w-4 h-4 mb-1 drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`} />
+                      <div className={`text-xs font-semibold drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`}>Safety</div>
+                      <div className={`text-[10px] text-center mt-1 leading-tight ${
+                        darkMode ? 'text-gray-300' : 'text-white/90'
+                      }`}>24/7 support</div>
+                    </div>
+                  </div>
+                </motion.div>
+                
+                {/* Quarter 4 - Bottom Right (3D) with Text */}
+                <motion.div 
+                  className="absolute bottom-0 right-0 w-1/2 h-1/2 cursor-pointer"
+                  style={{
+                    transform: 'translateZ(10px)'
+                  }}
+                  whileHover={{
+                    translateZ: 20,
+                    scale: 1.05
+                  }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                >
+                  {/* Pie Quarter */}
+                  <div 
+                    className="absolute bottom-0 right-0 w-full h-full"
+                    style={{
+                      background: `conic-gradient(from 270deg at 100% 100%, #10b981 0deg, #10b981 90deg, transparent 90deg)`,
+                      boxShadow: '0 4px 15px rgba(16, 185, 129, 0.3)',
+                      borderRadius: '0 0 100% 0'
+                    }}
+                  />
+                  
+                  {/* Text Container */}
+                  <div className="absolute" style={{ bottom: '35%', right: '35%', transform: 'translateZ(10px)' }}>
+                    <div className={`flex flex-col items-center p-1 rounded-lg border-2 backdrop-blur-sm w-20 ${
+                      darkMode ? 'border-white/30 bg-white/10' : 'border-white/50 bg-white/20'
+                    }`}>
+                      <Clock className={`w-4 h-4 mb-1 drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`} />
+                      <div className={`text-xs font-semibold drop-shadow-lg ${
+                        darkMode ? 'text-white' : 'text-white'
+                      }`}>Flexible</div>
+                      <div className={`text-[10px] text-center mt-1 leading-tight ${
+                        darkMode ? 'text-gray-300' : 'text-white/90'
+                      }`}>Work around schedule</div>
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* 3D Side Panels for depth - all same depth */}
+                <div 
+                  className="absolute top-0 right-0 w-1/2 h-1/2"
+                  style={{
+                    background: '#10b981',
+                    transform: 'translateZ(-5px) translateX(5px)',
+                    borderRadius: '0 100% 0 0',
+                    opacity: 0.7
+                  }}
+                />
+                <div 
+                  className="absolute top-0 left-0 w-1/2 h-1/2"
+                  style={{
+                    background: '#10b981',
+                    transform: 'translateZ(-5px) translateX(-5px)',
+                    borderRadius: '100% 0 0 0',
+                    opacity: 0.7
+                  }}
+                />
+                <div 
+                  className="absolute bottom-0 left-0 w-1/2 h-1/2"
+                  style={{
+                    background: '#10b981',
+                    transform: 'translateZ(-5px) translateX(-5px)',
+                    borderRadius: '0 0 0 100%',
+                    opacity: 0.7
+                  }}
+                />
+                <div 
+                  className="absolute bottom-0 right-0 w-1/2 h-1/2"
+                  style={{
+                    background: '#10b981',
+                    transform: 'translateZ(-5px) translateX(5px)',
+                    borderRadius: '0 0 100% 0',
+                    opacity: 0.7
+                  }}
+                />
+              </div>
+
+              {/* 3D Center Circle */}
+              <div 
+                className={`absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border-4 border-primary flex items-center justify-center`}
+                style={{
+                  transform: 'translate(-50%, -50%) translateZ(15px)',
+                  boxShadow: '0 8px 20px rgba(16, 185, 129, 0.4)',
+                  background: darkMode ? 'linear-gradient(145deg, #1f2937, #111827)' : 'linear-gradient(145deg, #ffffff, #f3f4f6)'
+                }}
+              >
+                <div className="text-sm font-bold text-primary">Benefits</div>
               </div>
 
             </motion.div>
