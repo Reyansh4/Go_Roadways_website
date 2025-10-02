@@ -136,12 +136,12 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
       </section>
 
       {/* Why Drivers Choose Us Section */}
-      <section className={`py-10 w-full ${
+      <section className={`py-16 w-full ${
         darkMode ? 'bg-gray-800 text-white' : 'bg-gray-50 text-gray-900'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -170,10 +170,10 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
           </motion.div>
 
           {/* Responsive 3D Pie Diagram */}
-          <div className="flex justify-center items-center w-full overflow-hidden">
+          <div className="flex justify-center items-center w-full py-8">
             {/* Desktop Layout */}
             <motion.div 
-              className="hidden lg:block relative w-[600px] h-[600px]"
+              className="hidden lg:block relative w-[600px] h-[600px] mt-4"
               initial={{ scale: 0, rotateY: -15 }}
               whileInView={{ scale: 1, rotateY: 0 }}
               transition={{ duration: 0.8 }}
@@ -398,7 +398,7 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
 
             {/* Tablet Layout */}
             <motion.div 
-              className="hidden md:block lg:hidden relative w-[400px] h-[400px]"
+              className="hidden md:block lg:hidden relative w-[400px] h-[400px] mt-4"
               initial={{ scale: 0, rotateY: -10 }}
               whileInView={{ scale: 1, rotateY: 0 }}
               transition={{ duration: 0.8 }}
@@ -623,7 +623,7 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
 
             {/* Mobile Layout - Small Pie Chart */}
             <motion.div 
-              className="md:hidden relative w-[300px] h-[300px] mx-auto"
+              className="md:hidden relative w-[300px] h-[300px] mx-auto mt-4"
               initial={{ scale: 0, rotateY: -5 }}
               whileInView={{ scale: 1, rotateY: 0 }}
               transition={{ duration: 0.8 }}
