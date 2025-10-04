@@ -75,7 +75,9 @@ const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
       <section className={`py-16 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Desktop: Image | Text */}
             <motion.div
+              className="hidden lg:block"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -100,6 +102,7 @@ const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
               </motion.div>
             </motion.div>
             <motion.div
+              className="hidden lg:block"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -125,6 +128,61 @@ const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
                   <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Reliable service</span>
                 </div>
               </div>
+            </motion.div>
+
+            {/* Tablet/Mobile: Text | Image */}
+            <motion.div
+              className="lg:hidden"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary">
+                Call a Cab at any time
+              </h2>
+              <p className={`text-lg leading-relaxed mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                Need a ride immediately? Our cab service is available 24/7. Just call and we'll be there in minutes.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Instant booking</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Quick response time</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Reliable service</span>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              className="lg:hidden"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ResponsiveImage
+                  src="/assets/images/homepage/main-page-02.png"
+                  alt="Call a cab service"
+                  aspectRatio="auto"
+                  minHeight={{
+                    mobile: '16rem',
+                    sm: '20rem',
+                    lg: '24rem',
+                  }}
+                  className="rounded-2xl shadow-xl"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </div>
@@ -193,7 +251,9 @@ const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
       <section className={`py-16 ${darkMode ? 'bg-gray-900' : 'bg-gray-50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Desktop: Image | Text */}
             <motion.div
+              className="hidden lg:block"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -218,6 +278,7 @@ const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
               </motion.div>
             </motion.div>
             <motion.div
+              className="hidden lg:block"
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
@@ -243,6 +304,61 @@ const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
                   <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Easy management</span>
                 </div>
               </div>
+            </motion.div>
+
+            {/* Tablet/Mobile: Text | Image */}
+            <motion.div
+              className="lg:hidden"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-primary">
+                Make money by renting out your car
+              </h2>
+              <p className={`text-lg leading-relaxed mb-8 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                Have a car sitting idle? Rent it out and earn passive income. We handle everything for you.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Passive income</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Full insurance coverage</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-primary rounded-full"></div>
+                  <span className={darkMode ? 'text-gray-300' : 'text-gray-600'}>Easy management</span>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              className="lg:hidden"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              <motion.div 
+                className="relative"
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ResponsiveImage
+                  src="/assets/images/homepage/main-page-04.png"
+                  alt="Car rental service"
+                  aspectRatio="auto"
+                  minHeight={{
+                    mobile: '16rem',
+                    sm: '20rem',
+                    lg: '24rem',
+                  }}
+                  className="rounded-2xl shadow-xl"
+                />
+              </motion.div>
             </motion.div>
           </div>
         </div>
