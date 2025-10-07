@@ -1,0 +1,51 @@
+# Go Roadways - Ride Sharing Platform
+# Toronto's Premier Transportation Service
+# https://goroadways.com
+
+# ============================================
+# Allow all major search engines to crawl
+# ============================================
+
+User-agent: *
+Allow: /
+
+# ============================================
+# Specific rules for Google
+# ============================================
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# ============================================
+# Allow Google Images to index all images
+# ============================================
+
+User-agent: Googlebot-Image
+Allow: /assets/images/
+
+# ============================================
+# Block source maps and technical files
+# ============================================
+
+Disallow: /*.map
+Disallow: /*.map.js
+Disallow: /vite.svg
+
+# ============================================
+# Sitemap Location
+# ============================================
+# Update this URL with your actual domain after deployment
+
+Sitemap: https://goroadways.com/sitemap.xml
+
+# ============================================
+# Crawl Delay (polite to server)
+# ============================================
+
+Crawl-delay: 1
+
+# ============================================
+# End of robots.txt
+# ============================================
+
