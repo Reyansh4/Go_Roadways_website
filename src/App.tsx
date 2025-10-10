@@ -4,6 +4,7 @@ import Header from './components/Header';
 import DevBanner from './components/DevBanner';
 import TorontoInfo from './components/TorontoInfo';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
 import RidePage from './pages/RidePage';
 import DrivePage from './pages/DrivePage';
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className={`min-h-screen transition-colors duration-300 ${
         darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
       }`}>
