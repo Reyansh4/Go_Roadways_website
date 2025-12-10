@@ -380,7 +380,7 @@ const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
               Download our apps to start booking rides or earning money. Choose the app that fits your needs.
             </p>
             
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-8">
+            <div className="flex flex-col lg:flex-row justify-center items-center gap-10 lg:gap-14">
               {/* Rider App QR Code */}
               <motion.div
                 className="text-center"
@@ -415,6 +415,17 @@ const HomePage: React.FC<HomePageProps> = ({ darkMode }) => {
                   />
                 </div>
                 <p className="text-sm font-medium text-primary">Driver App</p>
+              </motion.div>
+
+              {/* Coming soon badge */}
+              <motion.div
+                className="text-center lg:text-left"
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                viewport={{ once: true }}
+              >
+                <p className="text-4xl font-bold text-primary leading-tight">Coming soon....</p>
               </motion.div>
             </div>
           </motion.div>
