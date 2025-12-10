@@ -165,20 +165,29 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                 </div>
               </motion.div>
 
-              {/* Book Ride Button */}
-              <motion.button 
-                onClick={handleBookRide}
-                className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-400 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              {/* CTAs */}
+              <motion.div 
+                className="flex flex-wrap gap-4"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 1.4 }}
                 viewport={{ once: true }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
               >
-                <span>Book a Ride</span>
-                <ArrowRight className="h-5 w-5" />
-              </motion.button>
+                <button 
+                  onClick={handleBookRide}
+                  className="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  <span>Book a Ride</span>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+                <button 
+                  onClick={handleBookRide}
+                  className="bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  <span>Get a ride</span>
+                  <ArrowRight className="h-5 w-5" />
+                </button>
+              </motion.div>
             </motion.div>
           </motion.div>
 
