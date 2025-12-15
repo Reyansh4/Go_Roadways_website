@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import DevBanner from './components/DevBanner';
-import TorontoInfo from './components/TorontoInfo';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
@@ -47,8 +46,7 @@ function App() {
       }`}>
         <DevBanner darkMode={darkMode} />
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-        <TorontoInfo darkMode={darkMode} />
-        
+  
             <Routes>
               <Route path="/" element={<HomePage darkMode={darkMode} />} />
               <Route path="/ride" element={<RidePage darkMode={darkMode} />} />

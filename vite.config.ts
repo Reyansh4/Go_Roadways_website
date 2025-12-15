@@ -11,4 +11,8 @@ export default defineConfig({
   build: {
     copyPublicDir: true,
   },
+  // server: {
+  //   host: true, // Allow access from network (mobile devices)
+  //   port: 5173, // Default Vite port
+  // },
 });

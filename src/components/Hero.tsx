@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, Calendar, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ResponsiveImage from './ResponsiveImage';
+import { GOOGLE_FORMS } from '../constants/forms';
 
 interface HeroProps {
   darkMode: boolean;
+  bookRideFormUrl?: string; // Google Forms URL for "Book a Ride" button
+  getRideFormUrl?: string;   // Google Forms URL for "Get a ride" button
 }
 
-const Hero: React.FC<HeroProps> = ({ darkMode }) => {
+const Hero: React.FC<HeroProps> = ({ 
+  darkMode, 
+  bookRideFormUrl = GOOGLE_FORMS.BOOK_RIDE,
+  getRideFormUrl = GOOGLE_FORMS.GET_RIDE 
+}) => {
   const [pickupLocation, setPickupLocation] = useState('');
   const [dropLocation, setDropLocation] = useState('');
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -26,8 +33,11 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
   }, []);
 
   const handleBookRide = () => {
-    // Handle booking logic here
-    console.log('Book a Ride clicked');
+    window.open(bookRideFormUrl, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleGetRide = () => {
+    window.open(getRideFormUrl, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -181,7 +191,7 @@ const Hero: React.FC<HeroProps> = ({ darkMode }) => {
                   <ArrowRight className="h-5 w-5" />
                 </button>
                 <button 
-                  onClick={handleBookRide}
+                  onClick={handleGetRide}
                   className="bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-xl font-semibold flex items-center justify-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 >
                   <span>Get a ride</span>
