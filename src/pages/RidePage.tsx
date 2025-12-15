@@ -2,6 +2,7 @@ import React from 'react';
 import { Car, MapPin, Clock, Shield, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import HowItWorks from '../components/HowItWorks';
+import { GOOGLE_FORMS } from '../constants/forms';
 
 interface RidePageProps {
   darkMode: boolean;
@@ -253,6 +254,7 @@ const RidePage: React.FC<RidePageProps> = ({ darkMode }) => {
               className="bg-primary hover:bg-primary/90 text-white px-12 py-4 rounded-xl font-semibold text-lg flex items-center space-x-2 mx-auto transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open(GOOGLE_FORMS.BOOK_RIDE, '_blank', 'noopener,noreferrer')}
             >
               <span>Book a ride now</span>
               <ArrowRight className="h-5 w-5" />

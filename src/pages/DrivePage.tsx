@@ -2,6 +2,7 @@ import React from 'react';
 import { DollarSign, Clock, ArrowRight, CheckCircle, TrendingUp, Car, Map, Calendar, Package } from 'lucide-react';
 import { motion } from 'framer-motion';
 import ResponsiveImage from '../components/ResponsiveImage';
+import { GOOGLE_FORMS } from '../constants/forms';
 
 interface DrivePageProps {
   darkMode: boolean;
@@ -901,6 +902,7 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
                 className="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-semibold flex items-center space-x-2 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => window.open(GOOGLE_FORMS.GET_RIDE, '_blank', 'noopener,noreferrer')}
               >
                 <span>Start your application</span>
                 <ArrowRight className="h-5 w-5" />
@@ -1059,6 +1061,7 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
               className="bg-primary hover:bg-primary/90 text-white px-12 py-4 rounded-xl font-semibold text-lg flex items-center space-x-2 mx-auto transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              onClick={() => window.open(GOOGLE_FORMS.GET_RIDE, '_blank', 'noopener,noreferrer')}
             >
               <span>Apply to drive</span>
               <ArrowRight className="h-5 w-5" />
