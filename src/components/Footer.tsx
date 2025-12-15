@@ -22,6 +22,7 @@ const Footer: React.FC<FooterProps> = ({ darkMode }) => {
     services: [
       { name: 'Ride Booking', href: '/ride' },
       { name: 'Driver Registration', href: '/drive' },
+      { name: 'Routes', href: '/routes' },
       { name: 'Corporate', href: '#' },
       { name: 'Delivery', href: '#' },
     ],

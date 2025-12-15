@@ -9,6 +9,7 @@ import RidePage from './pages/RidePage';
 import DrivePage from './pages/DrivePage';
 import ExplorePage from './pages/ExplorePage';
 import AboutPage from './pages/AboutPage';
+import RoutesPage from './pages/RoutesPage';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -53,6 +54,7 @@ function App() {
               <Route path="/drive" element={<DrivePage darkMode={darkMode} />} />
               <Route path="/explore" element={<ExplorePage darkMode={darkMode} />} />
               <Route path="/about" element={<AboutPage darkMode={darkMode} />} />
+              <Route path="/routes" element={<RoutesPage darkMode={darkMode} />} />
             </Routes>
         
         <Footer darkMode={darkMode} />
