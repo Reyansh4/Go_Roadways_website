@@ -17,6 +17,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
     { href: '/', label: 'Home' },
     { href: '/ride', label: 'Ride' },
     { href: '/drive', label: 'Drive' },
+    { href: '/routes', label: 'Routes' },
     { href: '/explore', label: 'Explore' },
     { href: '/about', label: 'About' },
   ];
