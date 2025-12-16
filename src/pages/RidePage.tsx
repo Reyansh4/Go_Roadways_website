@@ -47,7 +47,7 @@ const RidePage: React.FC<RidePageProps> = ({ darkMode }) => {
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-28 sm:pt-32">
       {/* Hero Section */}
       <section className={`py-20 ${
         darkMode ? 'bg-gray-900 text-white' : 'bg-gray-50 text-gray-900'

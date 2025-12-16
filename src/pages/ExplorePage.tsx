@@ -120,7 +120,7 @@ const ExplorePage: React.FC<ExplorePageProps> = ({ darkMode }) => {
   };
 
   return (
-    <div className="pt-24">
+    <div className="pt-28 sm:pt-32">
       {/* Hero Section */}
       <section className={`relative py-20 overflow-hidden ${
         darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-blue-50 to-purple-50 text-gray-900'
