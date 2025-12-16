@@ -142,35 +142,35 @@ const RoutesPage: React.FC<RoutesPageProps> = ({ darkMode }) => {
                 viewport={{ once: true }}
                 whileHover={{ scale: 1.02, y: -5 }}
               >
-                <div className="p-8">
-                  <div className="grid md:grid-cols-3 gap-8 items-center">
+                <div className="p-4 sm:p-6 md:p-8">
+                  <div className="grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 items-center">
                     {/* Route Path */}
-                    <div className="md:col-span-2">
-                      <div className="flex items-center space-x-2 sm:space-x-4 mb-6 overflow-x-auto pb-2">
+                    <div className="md:col-span-2 w-full">
+                      <div className="flex items-center justify-between md:justify-start md:space-x-4 mb-6 w-full min-w-0">
                         {/* Origin */}
-                        <div className="flex flex-col items-center">
-                          <div className={`px-4 py-2 rounded-lg flex items-center justify-center font-bold text-base sm:text-lg border-2 border-primary ${
+                        <div className="flex flex-col items-center flex-shrink-0">
+                          <div className={`px-3 py-2 sm:px-4 sm:py-2 md:px-4 md:py-2 rounded-lg flex items-center justify-center font-bold text-sm sm:text-base md:text-lg border-2 border-primary whitespace-nowrap ${
                             darkMode ? 'bg-transparent text-primary' : 'bg-transparent text-primary'
                           }`}>
                             {route.origin}
                           </div>
-                          <span className={`text-xs sm:text-sm mt-2 font-medium ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                          <span className={`text-xs mt-1.5 sm:mt-2 font-medium ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                             Origin
                           </span>
                         </div>
 
                         {/* Arrow */}
-                        <div className="flex-1 flex items-center min-w-[40px] sm:min-w-0">
+                        <div className="flex items-center flex-1 min-w-0 mx-1 md:mx-0 md:flex-1 md:min-w-0">
                           <div className={`flex-1 h-0.5 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
-                          <ArrowRight className={`h-4 w-4 sm:h-6 sm:w-6 mx-1 sm:mx-2 flex-shrink-0 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+                          <ArrowRight className={`h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 mx-1 sm:mx-2 flex-shrink-0 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
                           <div className={`flex-1 h-0.5 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
                         </div>
 
                         {/* Via (if exists) */}
                         {route.via && (
                           <>
-                            <div className="flex flex-col items-center">
-                              <div className={`px-3 py-1.5 rounded-lg flex items-center justify-center text-xs sm:text-sm font-semibold border-2 border-primary ${
+                            <div className="flex flex-col items-center flex-shrink-0">
+                              <div className={`px-2.5 py-1.5 sm:px-3 sm:py-1.5 md:px-3 md:py-1.5 rounded-lg flex items-center justify-center text-xs sm:text-sm font-semibold border-2 border-primary whitespace-nowrap ${
                                 darkMode ? 'bg-transparent text-primary' : 'bg-transparent text-primary'
                               }`}>
                                 {route.via}
@@ -179,22 +179,22 @@ const RoutesPage: React.FC<RoutesPageProps> = ({ darkMode }) => {
                                 Via
                               </span>
                             </div>
-                            <div className="flex-1 flex items-center min-w-[40px] sm:min-w-0">
+                            <div className="flex items-center flex-1 min-w-0 mx-1 md:mx-0 md:flex-1 md:min-w-0">
                               <div className={`flex-1 h-0.5 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
-                              <ArrowRight className={`h-4 w-4 sm:h-6 sm:w-6 mx-1 sm:mx-2 flex-shrink-0 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
+                              <ArrowRight className={`h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 mx-1 sm:mx-2 flex-shrink-0 ${darkMode ? 'text-gray-400' : 'text-gray-500'}`} />
                               <div className={`flex-1 h-0.5 ${darkMode ? 'bg-gray-700' : 'bg-gray-300'}`}></div>
                             </div>
                           </>
                         )}
 
                         {/* Destination */}
-                        <div className="flex flex-col items-center">
-                          <div className={`px-4 py-2 rounded-lg flex items-center justify-center font-bold text-base sm:text-lg border-2 border-primary ${
+                        <div className="flex flex-col items-center flex-shrink-0">
+                          <div className={`px-3 py-2 sm:px-4 sm:py-2 md:px-4 md:py-2 rounded-lg flex items-center justify-center font-bold text-sm sm:text-base md:text-lg border-2 border-primary whitespace-nowrap ${
                             darkMode ? 'bg-transparent text-primary' : 'bg-transparent text-primary'
                           }`}>
                             {route.destination}
                           </div>
-                          <span className={`text-xs sm:text-sm mt-2 font-medium ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
+                          <span className={`text-xs mt-1.5 sm:mt-2 font-medium ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                             Destination
                           </span>
                         </div>
