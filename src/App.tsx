@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import DevBanner from './components/DevBanner';
+import MarketingBanner from './components/MarketingBanner';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 import HomePage from './pages/HomePage';
@@ -45,7 +45,7 @@ function App() {
       <div className={`min-h-screen transition-colors duration-300 ${
         darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'
       }`}>
-        <DevBanner darkMode={darkMode} />
+        <MarketingBanner darkMode={darkMode} />
         <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
   
             <Routes>

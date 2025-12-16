@@ -41,10 +41,10 @@ const Hero: React.FC<HeroProps> = ({
   };
 
   return (
-    <section id="home" className={`pt-20 py-20 flex items-center ${
+    <section id="home" className={`pt-28 sm:pt-32 flex items-center ${
       darkMode ? 'bg-gray-900 text-white' : 'bg-gradient-to-br from-blue-50 to-white text-gray-900'
     }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Content - Booking Form */}
           <motion.div 

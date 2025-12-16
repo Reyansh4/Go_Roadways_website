@@ -27,7 +27,7 @@ const DrivePage: React.FC<DrivePageProps> = ({ darkMode }) => {
 
 
   return (
-    <div className="pt-24 w-full overflow-x-hidden">
+    <div className="pt-28 sm:pt-32 w-full overflow-x-hidden">
       {/* Hero Section - Uber-style */}
       <section className={`py-16 ${
         darkMode ? 'bg-gray-900 text-white' : 'bg-white text-gray-900'

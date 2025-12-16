@@ -23,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ darkMode, toggleDarkMode }) => {
   ];
 
   return (
-    <header className={`fixed top-8 w-full z-40 transition-all duration-300 ${
+    <header className={`fixed top-12 sm:top-14 w-full z-40 transition-all duration-300 ${
       darkMode ? 'bg-gray-900/95 text-white' : 'bg-white/95 text-gray-900'
     } backdrop-blur-md border-b ${darkMode ? 'border-gray-800' : 'border-gray-200'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

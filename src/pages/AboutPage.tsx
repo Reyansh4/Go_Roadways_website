@@ -9,7 +9,7 @@ interface AboutPageProps {
 
 const AboutPage: React.FC<AboutPageProps> = ({ darkMode }) => {
   return (
-    <div className="pt-24">
+    <div className="pt-28 sm:pt-32">
       <About darkMode={darkMode} />
       
       {/* CEO Letter Section */}
